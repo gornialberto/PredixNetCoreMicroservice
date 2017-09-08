@@ -15,17 +15,17 @@ namespace netCoreWebApi
     {
         public static void Main(string[] args)
         {
-            //var processInfo = new ProcessStartInfo
-            //{
-            //    FileName = "ecagent_linux_sys",
-            //    Arguments = "-dbg -mod client -aid lQHBP2 -hst wss://fca-ec-gateway-01.run.aws-usw02-pr.ice.predix.io/agent -cid fca-ec-client -csc Pa55w0rd% -tid gBwuUe -oa2 https://gorni-uaa-dev.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token -dur 3000 -lpt 8433"
-            //};
+            var processInfo = new ProcessStartInfo
+            {
+                FileName = "ecagent_linux_sys",
+                Arguments = "-dbg -mod client -aid lQHBP2 -hst wss://<gateway url>/agent -cid <uaaClientId> -csc <UaaClientSecret> -tid gBwuUe -oa2 https://<your uaa url>/oauth/token -dur 3000 -lpt 8433"
+            };
 
-            //Console.WriteLine("Starting child process...");
-            //using (var process = Process.Start(processInfo))
-            //{
-            //    process.Start();
-            //}
+            Console.WriteLine("Starting child process...");
+            using (var process = Process.Start(processInfo))
+            {
+                process.Start();
+            }
 
             Task.Delay(200);
 
